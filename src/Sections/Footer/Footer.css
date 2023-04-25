@@ -1,0 +1,99 @@
+.footer{
+    background-color: var(--color-secondary);
+    padding: 20px 0;
+}
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    /* background-color: brown; */
+}
+.footer-container .title{
+    display: flex;
+}
+.footer-container .title h4{
+    color: var(--color-light);
+    margin-bottom: 15px;
+    font-size: 26px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--color-muted);
+}
+.footer-container .mention-legale,
+.footer-container .horaire-douverture,
+.footer-container .service-client{
+    flex-wrap: wrap;
+    width: calc((100% / 3) - 80px);
+    margin-right: 40px;
+    /* background-color: red; */
+}
+.footer-container .mention-legale .link-area{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+.footer-container .mention-legale .link-area a {
+    color: var(--color-light);
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--color-muted);
+}
+.footer-container .horaire-douverture p{
+    font-size: 18px;
+    color: var(--color-muted);
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+.footer-container .service-client{
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+}
+.footer-container .service-client span{
+    color: var(--color-muted);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.footer-container .service-client span:last-child{
+    color: var(--color-light);
+    font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 768px){
+    .footer-container .mention-legale,
+    .footer-container .horaire-douverture,
+    .footer-container .service-client{
+        width: calc((100% / 2)  - 40px);
+        margin-bottom: 20px;
+    }
+    .footer-container .service-client{
+        margin-bottom: 0;
+    }
+    .footer-container .title h4{
+        font-size: 24px;
+    }
+    .footer-container .mention-legale .link-area a,
+    .footer-container .horaire-douverture p{
+        font-size: 16px;
+    }
+}
+@media(max-width:575px){
+    .footer-container{
+        flex-direction: column;
+    }
+    .footer-container .mention-legale,
+    .footer-container .horaire-douverture{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer-container .title h4{
+        font-size: 20px;
+    }
+    .footer-container .service-client{
+        width: 100%;
+        margin-bottom: 0;
+    }
+}

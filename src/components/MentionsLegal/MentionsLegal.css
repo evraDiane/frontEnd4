@@ -1,0 +1,67 @@
+.mention-legal{
+    display: flex;
+    justify-content: right;
+    position: relative;
+}
+.mention-legal .mention-legal-menu{
+    width: calc(25% - 10px);
+    background-color: #eee;
+    margin-top: 20px;
+    height: 180px;
+    border-radius: 10px;
+    position: fixed;
+    left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 10px;
+}
+.mention-legal .mention-legal-menu a{
+    font-size: 18px;
+}
+.mention-legal .mention-legal-content{
+    width: calc(75% - 10px);
+    background-color: #eee;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+.mention-legal .mention-legal-content h3{
+    font-size: 25px;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.mention-legal .mention-legal-content h5{
+    font-size: 18px;
+    margin-bottom: 10px;
+    width: fit-content;
+    border-bottom: 1px solid #000;
+}
+.mention-legal .mention-legal-content p{
+    margin-left: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+    .mention-legal .mention-legal-menu{
+        display: none;
+    }
+    .mention-legal .mention-legal-content{
+        width: 100%;
+    }
+}
+@media(max-width:575px){
+    .mention-legal .mention-legal-content h3{
+        font-size: 20px;
+    }
+    
+    .mention-legal .mention-legal-content h5{
+        font-size: 16px;
+    }
+    .mention-legal .mention-legal-content p{
+        font-size: 16px;
+    }
+}

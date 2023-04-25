@@ -1,0 +1,147 @@
+.home-dashbord{
+    margin-top: 20px;
+    padding: 20px;
+}
+.home-dashbord .container{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    min-height: 80vh;
+    gap: 25px;
+}
+.home-dashbord .container h1{
+    color: var(--color-light);
+    padding: 20px;
+    border-radius: var(--border-radius-primary);
+    font-size: 25px;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--color-secondary);
+}
+.home-dashbord .home-dashbord-header{
+    background: url('../../../Assets/images/header-background.jpg') no-repeat bottom right/cover;
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius-primary);
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-primary);
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content h1{
+    font-size: 25px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-light);
+    padding: 0;
+    background-color: transparent;
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content h3{
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: #eee;
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content .home-dashbord-links{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    margin-top: 13px;
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content .home-dashbord-links a{
+    color: var(--color-secondary);
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content .home-dashbord-links a:nth-child(2){
+    background-color: transparent;
+    color: #fff;
+    transition:all 1s ease;
+    backdrop-filter: blur(5px);
+}
+.home-dashbord .home-dashbord-header .home-dashbord-header-content .home-dashbord-links a:nth-child(2):hover{
+    background-color: #ddd;
+    color:var(--color-secondary);
+}
+.home-dashbord .home-dashbord-items{
+    display: flex;
+    justify-content: space-between;
+}
+.home-dashbord .home-dashbord-items > div{
+    padding: 25px;
+    width: calc((100% / 2) - 20px);
+    border-radius: 10px;
+}
+.home-dashbord .home-dashbord-items .title{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.home-dashbord .home-dashbord-items .title h4{
+    font-size: 25px;
+    font-weight: var(--font-weight-bold);
+    color: #fff;
+}
+.home-dashbord .home-dashbord-items .title h5{
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: #fff;
+}
+.home-dashbord .home-dashbord-items .home-dashbord-client-content,
+.home-dashbord .home-dashbord-items .home-dashbord-employe-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-dashbord .home-dashbord-items .home-dashbord-client{
+    background-color: #3696c3;
+}
+.home-dashbord .home-dashbord-items .home-dashbord-employe{
+    background-color: #056899;
+}
+
+@media (max-width: 768px){
+    .home-dashbord .home-dashbord-header .home-dashbord-header-content h1,
+    .home-dashbord .container h1{
+        font-size: 20px;
+    }
+    .home-dashbord .home-dashbord-header .home-dashbord-header-content h3{
+        font-size: 18px;
+    }
+    .home-dashbord .home-dashbord-header .home-dashbord-header-content .home-dashbord-links a{
+        padding: 8px 12px;
+    }
+    .home-dashbord .home-dashbord-items{
+        flex-direction: column;
+    }
+    .home-dashbord .home-dashbord-items > div{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .home-dashbord .home-dashbord-items .title h4{
+        font-size: 22px;
+    }
+    .home-dashbord .home-dashbord-items .title h5{
+        font-size: 18px;
+        font-weight: var(--font-weight-bold);
+        color: #fff;
+    }
+    .icon-style{
+        font-size: 40px;
+    }
+}
+@media(max-width:575px){
+    .home-dashbord .home-dashbord-header .home-dashbord-header-content h1,
+    .home-dashbord .container h1{
+        font-size: 18px;
+    }
+    .home-dashbord .home-dashbord-header .home-dashbord-header-content h3{
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,27 @@
+.profile-utilisateur {
+    background-color: #eee;
+    margin: 50px 0 50px 0;
+}
+
+.profile-utilisateur h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    margin: 15px 0;
+    color: var(--color-light);
+    background-color: var(--color-secondary);
+    padding: 10px;
+}
+
+.profile-utilisateur h5 {
+    margin: 0 0 10px 10px;
+    font-size: 16px;
+}
+
+.profile-utilisateur {
+    padding-bottom: 5px;
+}
+.profile-utilisateur .historique-tchat span{
+    border-bottom: 1px solid rgb(42, 42, 244);
+    color: rgb(42, 42, 244);
+    cursor: pointer;
+}

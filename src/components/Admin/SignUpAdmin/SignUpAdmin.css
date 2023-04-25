@@ -1,0 +1,44 @@
+.sign-up-admin{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-up-admin .formBox{
+    display: flex;
+    background-color: #f1f1f1;
+    padding: 40px;
+    flex-direction: column;
+    border-radius: 12px;
+    width: 500px;
+    height: 300px;
+}
+
+.sign-up-admin form button{
+    padding: 15px 20px;
+    font-size: var(--font-size-primary);
+    border-radius: 4px;
+    background-color: var(--color-green);
+    color: var(--color-light);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .sign-up-admin .formBox{
+        padding: 40px;
+        width: 450px;
+        height: 300px;
+    }
+    .sign-up-admin form button{
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+@media(max-width:575px){
+    .sign-up-admin .formBox{
+        padding: 40px;
+        width: 300px;
+        height: 300px;
+    }
+}

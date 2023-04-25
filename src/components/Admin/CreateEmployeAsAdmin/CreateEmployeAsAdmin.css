@@ -1,0 +1,86 @@
+.createEmploye {
+    min-height: 85vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    position: relative;
+}
+
+.createEmploye .valider.done {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.createEmploye h1 {
+    color: var(--color-light);
+    padding: 20px;
+    border-radius: var(--border-radius-primary);
+    font-size: 25px;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--color-secondary);
+    margin-bottom: 40px;
+}
+
+.createEmploye button {
+    padding: 15px 20px;
+    font-size: var(--font-size-primary);
+    border-radius: 4px;
+    background-color: var(--color-green);
+    color: var(--color-light);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.createEmploye .formBox {
+    padding: 40px;
+    border: 5px solid var(--color-secondary);
+    border-radius: 12px;
+    background-color: #f1f1f1;
+}
+
+.createEmploye .formBox .valider-pseudo-employe.exist {
+    border-bottom: 1px solid var(--color-red);
+}
+
+.createEmploye .formBox .valider-pseudo-employe.not-exist {
+    border-bottom: 1px solid var(--color-green);
+}
+
+@media (max-width: 768px) {
+    .createEmploye h1 {
+        font-size: 20px;
+    }
+
+    .createEmploye .formBox .inputBox.file,
+    .createEmploye .formBox .inputBox.sup {
+        width: 100%;
+    }
+}
+
+@media(max-width:575px) {
+    .createEmploye h1 {
+        font-size: 18px;
+    }
+
+    .createEmploye .formBox .inputBox {
+        width: 100%;
+    }
+
+    .createEmploye button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}

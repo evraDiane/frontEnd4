@@ -1,0 +1,5 @@
+export {default as SignUpAdmin} from './SignUpAdmin/SignUpAdmin'
+export {default as DashbordAdmin} from './DashbordAdmin/DashbordAdmin'
+export {default as CreateEmployeAsAdmin} from './CreateEmployeAsAdmin/CreateEmployeAsAdmin'
+export {default as HomeAdminDashBord} from './HomeAdminDashbord/HomeAdminDashbord'
+export {default as RequierdSignIn} from './RequierdSignIn/RequierdSignIn'

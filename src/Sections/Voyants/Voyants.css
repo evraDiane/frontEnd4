@@ -1,0 +1,35 @@
+.voyants{
+    margin-top: 20px;
+}
+.voyants h2{
+    background-color: var(--color-secondary);
+    padding: 20px ;
+    border-radius: 5px;
+    color: var(--color-light);
+    text-align: center;
+    font-size: 26px;
+    font-weight: var(--font-weight-bold);
+}
+.voyants-items{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.voyants-items .employe-item:nth-child(even){
+    margin-right: 0;
+}
+@media (max-width: 968px){
+    .voyants-items{
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px){
+    .voyants h2{
+        font-size: 22px;
+    }
+}
+@media(max-width:575px){
+    .voyants h2{
+        font-size: 20px;
+    }
+}

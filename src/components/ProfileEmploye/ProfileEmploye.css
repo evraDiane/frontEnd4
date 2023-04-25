@@ -1,0 +1,73 @@
+.navbar-profile-employe-container {
+    background-color: var(--color-secondary);
+}
+
+.navbar-profile-employe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: var(--font-size-primary);
+    font-weight: var(--font-weight-bold);
+    max-width: 1200px;
+    margin: auto;
+}
+.navbar-profile-employe .logout-employe{
+    padding: 5px 15px;
+    font-size: var(--font-size-primary);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-light);
+    background-color: var(--color-red);
+    cursor: pointer;
+    border-radius: 4px;
+}
+.navbar-profile-employe h3{
+    color: var(--color-light);
+}
+.status-employe {
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-employe p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status-employe .update-status-employe {
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.status-employe button.disponible {
+    background-color: var(--color-green);
+}
+
+.status-employe button.indisponible {
+    background-color: var(--color-red);
+}
+
+@media (max-width: 768px){
+    .voyants h2{
+        font-size: 22px;
+    }
+}
+@media(max-width:575px){
+    .status-employe .update-status-employe,
+    .status-employe p{
+        font-size: 16px;
+    }
+    .navbar-profile-employe h3{
+        font-size: 18px;
+    }
+    .navbar-profile-employe .logout-employe{
+        font-size: 16px;
+    }
+}
