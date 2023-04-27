@@ -1,7 +1,7 @@
 import './CreateAcountPopUp.css'
 import React, { useState } from 'react'
 import Axios from 'axios'
-
+import { BASE_URL } from '../../configApi/apiConfig'
 const CreateAcountPopUp = (props) => {
     const [modal, setModal] = useState(false)
     const [prenom, setPrenom] = useState("")
@@ -12,7 +12,7 @@ const CreateAcountPopUp = (props) => {
     const postData = (e) => {
         e.preventDefault()
         if (exist) {
-            Axios.post('http://127.0.0.1:8000/api/Utilisateur_create/', {
+            Axios.post(`${BASE_URL}/api/Utilisateur_create/`, {
                 prenom,
                 pseudo,
                 email,

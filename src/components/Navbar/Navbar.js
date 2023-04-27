@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setUserLogin, removeSelectedUtilisateur } from '../../Redux/Actions/UserAction'
 import Axios from 'axios'
 import {RiMessage2Line} from "react-icons/ri"
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const Navbar = () => {
     const [pseudo, setPseudo] = useState("")
@@ -28,7 +29,7 @@ const Navbar = () => {
     }, [pseudo, password])
     const getApiPseudoPassword = (e) => {
         e.preventDefault()
-        Axios.post('http://127.0.0.1:8000/api/Utilisateur_authentification/', {
+        Axios.post(`${BASE_URL}/api/Utilisateur_authentification/`, {
             pseudo,
             password
         })
