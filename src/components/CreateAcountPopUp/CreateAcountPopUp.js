@@ -1,7 +1,7 @@
 import './CreateAcountPopUp.css'
 import React, { useState } from 'react'
 import Axios from 'axios'
-import { BASE_URL } from '../../configApi/apiConfig'
+import {BASE_URL }from '../../configApi/apiConfig'
 const CreateAcountPopUp = (props) => {
     const [modal, setModal] = useState(false)
     const [prenom, setPrenom] = useState("")

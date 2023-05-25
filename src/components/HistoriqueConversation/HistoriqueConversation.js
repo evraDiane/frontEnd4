@@ -1,6 +1,7 @@
 import React , { useState , useEffect } from 'react'
 import './HistoriqueConversation.css'
 import Axios from 'axios'
+import {BASE_URL} from '../../configApi/apiConfig'
 
 const HistoriqueConversation = ({conversation}) => {
     const [emp, setEmp] = useState([{}])
@@ -9,7 +10,7 @@ const HistoriqueConversation = ({conversation}) => {
         const psEmploye = conversation.pseudo_employe
         const getEmploye = async () => {
             try {
-                const response = await Axios.get(`http://127.0.0.1:8000/api/ReturnEmploye/${psEmploye}/`)
+                const response = await Axios.get(`${BASE_URL}/api/ReturnEmploye/${psEmploye}/`)
                 setEmp(response.data)
             } catch (err) {
                 console.log(err)

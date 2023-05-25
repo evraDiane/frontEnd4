@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './CreateEmployeAsAdmin.css'
 import Axios from 'axios'
 import { Container } from '../../../components/index'
+import { BASE_URL } from '../../../configApi/apiConfig'
 
 const CreateEmployeAsAdmin = () => {
     const [prenom_employe, setPrenom_employe] = useState("")
@@ -25,7 +26,7 @@ const CreateEmployeAsAdmin = () => {
             formData.append("description_employe", description_employe)
             formData.append("image_employe", image_employe, image_employe.name)
             formData.append("support_divinatoire_employe", support_divinatoire_employe)
-            Axios.post('http://127.0.0.1:8000/api/Employe_create/', formData)
+            Axios.post(`${BASE_URL}/api/Employe_create/`, formData)
                 .then(response => {
                     setDone(true)
                     setTimeout(() => {
@@ -52,7 +53,7 @@ const CreateEmployeAsAdmin = () => {
                         <div className={existEmp ? "valider-pseudo-employe inputBox w50 not-exist" : "valider-pseudo-employe inputBox w50 exist"}>
                             <input type="text" required value={pseudo_employe} onChange={(e) => {
                                 setPseudo_employe(e.target.value)
-                                Axios.post('http://127.0.0.1:8000/api/pseudo_employe_bd/', {
+                                Axios.post(`${BASE_URL}/api/pseudo_employe_bd/`, {
                                     pseudo_employe: e.target.value
                                 }).then((response) => {
                                     console.log(response.data)

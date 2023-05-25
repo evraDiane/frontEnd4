@@ -3,6 +3,7 @@ import './HistoriqueChat.css'
 import { Navbar, Container, HistoriqueConversation, HistoriqueMessage } from '../index'
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios'
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const HistoriqueChat = () => {
     const [conversationsh, setConversationsh] = useState([])
@@ -27,7 +28,7 @@ const HistoriqueChat = () => {
                 const pseudoUser = window.localStorage.getItem("pseudo")
                 if (pseudoUser) {
                     setPseudoUs(pseudoUser)
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/Returnhistoriqueinfo/${pseudoUser}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/Returnhistoriqueinfo/${pseudoUser}/`)
                         .then((response) => {
                             setConversationsh(response.data)
                         })
@@ -42,7 +43,7 @@ const HistoriqueChat = () => {
         const getMessages = async () => {
             try {
                 if (currentChath) {
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/ReturnMessage_historique/${currentChath[0].historiqueId}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/ReturnMessage_historique/${currentChath[0].historiqueId}/`)
                     setMessages(response.data)
                 }
             } catch (err) {

@@ -5,6 +5,7 @@ import { Navbar, Container } from '../index'
 import { Footer } from '../../Sections/index'
 import { useNavigate, Link } from 'react-router-dom'
 import Axios from 'axios'
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const ProfileUtilisateur = () => {
     const [pseudoU, setPseudoU] = useState("")
@@ -14,7 +15,7 @@ const ProfileUtilisateur = () => {
     const fetchProfileUtilisateur = async () => {
         const pseudoUser = window.localStorage.getItem("pseudo")
         if (pseudoUser) {
-            await Axios.get(`http://127.0.0.1:8000/api/ReturnUtilisateur/${pseudoUser}/`)
+            await Axios.get(`${BASE_URL}/api/ReturnUtilisateur/${pseudoUser}/`)
                 .then((response) => setMyUser(response.data))
                 .catch((err) => console.log(err))
         }

@@ -5,7 +5,7 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Navbar, Container} from '../index'
 import { Footer } from '../../Sections/index'
-
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const Payment = () => {
     const [minutes, setMinutes] = useState("")
@@ -26,10 +26,12 @@ const Payment = () => {
             const pseudoUser = window.localStorage.getItem("pseudo")
             const myMinutes = window.localStorage.getItem("minutes")
             if (pseudoUser && myMinutes) {
-                Axios.post(`http://127.0.0.1:8000/api/change/`, {
+                Axios.post(`${BASE_URL}/api/change/`, {
                     pseudo: pseudoUser,
                     nbr_sc: myMinutes
-                })
+                }
+                ,
+                )
                 alert('Votre Payment Est Effectuer Tu Peux Lancer Le Chat Maintenant Avec Votre Voyant')
                 navigate('/payment')
             }

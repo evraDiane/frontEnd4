@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { CreateAcountPopUp } from '../../components/index'
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const Employe = () => {
     const user = useSelector((state) => state.user)
@@ -23,35 +24,35 @@ const Employe = () => {
     const verification = () => {
         const pseudoUser = window.localStorage.getItem("pseudo")
         if (pseudoUser) {
-            Axios.get(`http://127.0.0.1:8000/api/ReturnUtilisateur/${pseudoUser}/`)
+            Axios.get(`${BASE_URL}/api/ReturnUtilisateur/${pseudoUser}/`)
                 .then((response) => {
                     if (response.data[0].payment) {
-                        Axios.get(`http://127.0.0.1:8000/api/ReturnEmploye/${emp}/`)
+                        Axios.get(`${BASE_URL}/api/ReturnEmploye/${emp}/`)
                             .then((response) => {
                                 if (response.data[0].nbr_utilisateurs < 4) {
-                                    Axios.post('http://127.0.0.1:8000/api/historique_utilisateur/', {
+                                    Axios.post(`${BASE_URL}/api/historique_utilisateur/`, {
                                         pseudo_employe: emp,
                                         pseudo: pseudoUser
                                     }).then((response) => {
                                         if (response.data) {
-                                            Axios.post('http://127.0.0.1:8000/api/Createhistorique/', {
+                                            Axios.post(`${BASE_URL}/api/Createhistorique/`, {
                                                 pseudo_employe: emp,
                                                 pseudo: pseudoUser
                                             })
                                         }
                                     })
-                                    Axios.post('http://127.0.0.1:8000/api/conversation_utilisateur/', {
+                                    Axios.post(`${BASE_URL}/api/conversation_utilisateur/`, {
                                         pseudo_employe: emp,
                                         pseudo: pseudoUser
                                     })
                                         .then((response) => {
                                             if (response.data) {
-                                                Axios.post('http://127.0.0.1:8000/api/Createconversation/', {
+                                                Axios.post(`${BASE_URL}/api/Createconversation/`, {
                                                     pseudo_employe: emp,
                                                     pseudo: pseudoUser
                                                 })
                                                     .then(() => {
-                                                        Axios.post('http://127.0.0.1:8000/api/number_utilisateur/', {
+                                                        Axios.post(`${BASE_URL}/api/number_utilisateur/`, {
                                                             pseudo_employe: emp
                                                         })
                                                     }).then(() => {
@@ -63,7 +64,7 @@ const Employe = () => {
                                             }
                                         })
                                 } else {
-                                    Axios.post('http://127.0.0.1:8000/api/conversation_utilisateur/', {
+                                    Axios.post(`${BASE_URL}/api/conversation_utilisateur/`, {
                                         pseudo_employe: emp,
                                         pseudo: pseudoUser
                                     })

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import './SignInEmploye.css'
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios'
+import {BASE_URL} from '../../configApi/apiConfig'
 
 const SignInEmploye = () => {
     const [pseudo_employe, setPseudo_employe] = useState("")
@@ -13,7 +14,7 @@ const SignInEmploye = () => {
     }, [])
     const signInEmployeAuth = (e) => {
         e.preventDefault()
-        Axios.post('http://127.0.0.1:8000/api/Authentification_Employe/', {
+        Axios.post(`${BASE_URL}/api/Authentification_Employe/`, {
             pseudo_employe,
             password_employe
         })

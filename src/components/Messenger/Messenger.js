@@ -4,6 +4,7 @@ import { Navbar, Container, Conversation, Message } from '../index'
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios'
 import { io } from 'socket.io-client'
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const Messenger = () => {
     const [conversationsh, setConversationsh] = useState([])
@@ -58,10 +59,10 @@ const Messenger = () => {
                 const pseudoUser = window.localStorage.getItem("pseudo")
                 if (pseudoUser) {
                     setPseudoUs(pseudoUser)
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/Returnconversationinfo/${pseudoUser}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/Returnconversationinfo/${pseudoUser}/`)
                         .then((response) => {
                             setConversations(response.data)
-                            Axios.get(`http://127.0.0.1:8000/api/Returnhistoriqueinfo/${pseudoUser}/`)
+                            Axios.get(`${BASE_URL}/api/Returnhistoriqueinfo/${pseudoUser}/`)
                                 .then((responseh) => {
                                     setConversationsh(responseh.data)
                                 })
@@ -77,7 +78,7 @@ const Messenger = () => {
         const getMessages = async () => {
             try {
                 if (currentChat) {
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/ReturnMessage/${currentChat[0].conversationId}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/ReturnMessage/${currentChat[0].conversationId}/`)
                     setMessages(response.data)
                 }
             } catch (err) {
@@ -108,13 +109,13 @@ const Messenger = () => {
             text: newMessage
         })
         try {
-            const response = await Axios.post('http://127.0.0.1:8000/api/CreateMessage/', message)
+            const response = await Axios.post(`${BASE_URL}/api/CreateMessage/`, message)
             setMessages([...messages, response.data])
             setNewMessage("")
-            Axios.post('http://127.0.0.1:8000/api/CreateMessage_historique/', messageh)
+            Axios.post(`${BASE_URL}/api/CreateMessage_historique/`, messageh)
             const pseudoUser = window.localStorage.getItem("pseudo")
             if (pseudoUser) {
-                Axios.post('http://127.0.0.1:8000/api/update_nbr_min/', {
+                Axios.post(`${BASE_URL}/api/update_nbr_min/`, {
                     pseudo: pseudoUser,
                     nbr_sc: resultInSeconds,
                     pseudo_employe: currentChat[0].pseudo_employe,
@@ -134,7 +135,7 @@ const Messenger = () => {
     }, [messages])
     useEffect(() => {
         const getTimeUser = async () => {
-            await Axios.get(`http://127.0.0.1:8000/api/ReturnUtilisateur/${currentChat[0].pseudo}/`)
+            await Axios.get(`${BASE_URL}/api/ReturnUtilisateur/${currentChat[0].pseudo}/`)
                 .then((response) => setUserTime(response.data[0].nbr_sc))
                 .catch((err) => console.log(err))
         }

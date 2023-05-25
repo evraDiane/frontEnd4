@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setUserLogin, removeSelectedUtilisateur } from '../../Redux/Actions/UserAction'
 import Axios from 'axios'
 import {RiMessage2Line} from "react-icons/ri"
-import { BASE_URL } from '../../configApi/apiConfig'
+import {BASE_URL} from '../../configApi/apiConfig'
 
 const Navbar = () => {
     const [pseudo, setPseudo] = useState("")
@@ -83,7 +83,7 @@ const Navbar = () => {
         <nav className='navbar'>
             <div className='containerNav'>
                 <div className='logo' onClick={navigateHome}>
-                    < RiMessage2Line style={iconStyle}/>
+                    <RiMessage2Line style={iconStyle}/>
                     <a >Ora</a>
                 </div>
                 <div className='link-area'>

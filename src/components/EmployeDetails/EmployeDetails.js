@@ -7,6 +7,7 @@ import { selectedEmploye, removeSelectedEmploye } from '../../Redux/Actions/Empl
 import { Navbar, Container, CreateAcountPopUp } from '../../components/index'
 import { Footer } from '../../Sections/index'
 import { ImUserTie } from 'react-icons/im'
+import { BASE_URL } from '../../configApi/apiConfig'
 const EmployeDetails = () => {
   const iconStyle = {
     color: 'rgba(0,0,0,0.3)',
@@ -22,7 +23,7 @@ const EmployeDetails = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const fetchEmloyeDetail = async () => {
-    const response = await Axios.get(`http://127.0.0.1:8000/api/ReturnEmploye/${pseudo_employe}/`)
+    const response = await Axios.get(`${BASE_URL}/api/ReturnEmploye/${pseudo_employe}/`)
       .then((response) => dispatch(selectedEmploye(response.data)))
       .catch((err) => console.log(err))
   }
@@ -48,16 +49,16 @@ const EmployeDetails = () => {
   const verification = () => {
     const pseudoUser = window.localStorage.getItem("pseudo")
     if (pseudoUser) {
-      Axios.get(`http://127.0.0.1:8000/api/ReturnUtilisateur/${pseudoUser}/`)
+      Axios.get(`${BASE_URL}/api/ReturnUtilisateur/${pseudoUser}/`)
         .then((response) => {
           if (response.data[0].payment) {
-            Axios.post('http://127.0.0.1:8000/api/conversation_utilisateur/', {
+            Axios.post(`${BASE_URL}/api/conversation_utilisateur/`, {
               pseudo_employe: emp,
               pseudo: pseudoUser
             })
               .then((response) => {
                 if (response.data) {
-                  Axios.post('http://127.0.0.1:8000/api/Createconversation/', {
+                  Axios.post(`${BASE_URL}/api/Createconversation/`, {
                     pseudo_employe: emp,
                     pseudo: pseudoUser
                   })
@@ -89,7 +90,7 @@ const EmployeDetails = () => {
             <div className='employe-details-container'>
               <div className='employe-item' key={pseudo_employe} onFocus={() => setEmp(pseudo_employe)}>
                 <div className='employe-wrapper'>
-                  <img className='employe-item-image-d' src={`http://127.0.0.1:8000${image_employe}`} />
+                  <img className='employe-item-image-d' src={`${BASE_URL}${image_employe}`} />
                   <div className='employe-item-content'>
                     <h4 className='employe-item-name'>{prenom_employe}</h4>
                     <p className='employe-item-specialite'>Spécialité : {specialite_employe}</p>

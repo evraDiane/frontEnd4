@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Axios from 'axios'
 import { MessageEmploye, ConversationEmploye, Container } from '../index'
 import { io } from 'socket.io-client'
+import { BASE_URL } from '../../configApi/apiConfig'
 
 const ProfileEmploye = () => {
     const [pseudoEmp, setPseudoEmp] = useState("")
@@ -14,7 +15,7 @@ const ProfileEmploye = () => {
     const fetchEmployeData = async () => {
         const pseudoEmploye = localStorage.getItem("pseudoEmploye")
         if (pseudoEmploye) {
-            await Axios.get(`http://127.0.0.1:8000/api/ReturnEmploye/${pseudoEmploye}/`)
+            await Axios.get(`${BASE_URL}/api/ReturnEmploye/${pseudoEmploye}/`)
                 .then((response) => {
                     setEmployeDetails(response.data)
                 })
@@ -27,7 +28,7 @@ const ProfileEmploye = () => {
         const pseudoEmploye = localStorage.getItem("pseudoEmploye")
         if (pseudoEmploye) {
             if (status === false) {
-                Axios.post('http://127.0.0.1:8000/api/change_employe/', {
+                Axios.post(`${BASE_URL}/api/change_employe/`, {
                     pseudo_employe: pseudoEmploye,
                     statut_employe: true
                 }).then(() => {
@@ -35,7 +36,7 @@ const ProfileEmploye = () => {
                 })
             }
             else if (status === true) {
-                Axios.post('http://127.0.0.1:8000/api/change_employe/', {
+                Axios.post(`${BASE_URL}/api/change_employe/`, {
                     pseudo_employe: pseudoEmploye,
                     statut_employe: false
                 }).then(() => {
@@ -100,10 +101,10 @@ const ProfileEmploye = () => {
                 const pseudoEmploye = window.localStorage.getItem("pseudoEmploye")
                 if (pseudoEmploye) {
                     setPseudoEmpl(pseudoEmploye)
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/Returnconversation_employe/${pseudoEmploye}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/Returnconversation_employe/${pseudoEmploye}/`)
                         .then((response) => {
                             setConversations(response.data)
-                            Axios.get(`http://127.0.0.1:8000/api/Returnhistoriqueinfo_employe/${pseudoEmploye}/`)
+                            Axios.get(`${BASE_URL}/api/Returnhistoriqueinfo_employe/${pseudoEmploye}/`)
                                 .then((responseh) => {
                                     setConversationsh(responseh.data)
                                 })
@@ -119,7 +120,7 @@ const ProfileEmploye = () => {
         const getMessages = async () => {
             try {
                 if (currentChat) {
-                    const response = await Axios.get(`http://127.0.0.1:8000/api/ReturnMessage/${currentChat[0].conversationId}/`)
+                    const response = await Axios.get(`${BASE_URL}/api/ReturnMessage/${currentChat[0].conversationId}/`)
                     setMessages(response.data)
                 }
             } catch (err) {
@@ -147,10 +148,10 @@ const ProfileEmploye = () => {
             text: newMessage
         })
         try {
-            const response = await Axios.post('http://127.0.0.1:8000/api/CreateMessage/', message)
+            const response = await Axios.post(`${BASE_URL}/api/CreateMessage/`, message)
             setMessages([...messages, response.data])
             setNewMessage("")
-            Axios.post('http://127.0.0.1:8000/api/CreateMessage_historique/', messageh)
+            Axios.post(`${BASE_URL}/api/CreateMessage_historique/`, messageh)
         } catch (err) {
             console.log(err)
         }
@@ -160,7 +161,7 @@ const ProfileEmploye = () => {
     }, [messages])
     useEffect(() => {
         const getTimeUser = async () => {
-            await Axios.get(`http://127.0.0.1:8000/api/ReturnUtilisateur/${currentChat[0].pseudo}/`)
+            await Axios.get(`${BASE_URL}/api/ReturnUtilisateur/${currentChat[0].pseudo}/`)
                 .then((response) => setUserTime(response.data[0].nbr_sc))
                 .catch((err) => console.log(err))
         }
